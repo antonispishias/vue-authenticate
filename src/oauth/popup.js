@@ -3,9 +3,9 @@ import { objectExtend, parseQueryString, getFullUrlPath } from '../utils.js'
 
 /**
  * OAuth2 popup management class
- * 
+ *
  * @author Sahat Yalkabov <https://github.com/sahat>
- * @copyright Class mostly taken from https://github.com/sahat/satellizer 
+ * @copyright Class mostly taken from https://github.com/sahat/satellizer
  * and adjusted to fit vue-authenticate library
  */
 export default class OAuthPopup {
@@ -18,7 +18,7 @@ export default class OAuthPopup {
 
   open(redirectUri, skipPooling) {
     try {
-      this.popup = window.open(this.url, this.name, this._stringifyOptions())
+      this.popup = window.open(this.url, '_blank', this._stringifyOptions())
       if (this.popup && this.popup.focus) {
         this.popup.focus()
       }

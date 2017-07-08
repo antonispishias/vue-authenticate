@@ -684,9 +684,9 @@ function StorageFactory(options) {
 
 /**
  * OAuth2 popup management class
- * 
+ *
  * @author Sahat Yalkabov <https://github.com/sahat>
- * @copyright Class mostly taken from https://github.com/sahat/satellizer 
+ * @copyright Class mostly taken from https://github.com/sahat/satellizer
  * and adjusted to fit vue-authenticate library
  */
 var OAuthPopup = function OAuthPopup(url, name, popupOptions) {
@@ -698,7 +698,7 @@ var OAuthPopup = function OAuthPopup(url, name, popupOptions) {
 
 OAuthPopup.prototype.open = function open (redirectUri, skipPooling) {
   try {
-    this.popup = window.open(this.url, this.name, this._stringifyOptions());
+    this.popup = window.open(this.url, '_blank', this._stringifyOptions());
     if (this.popup && this.popup.focus) {
       this.popup.focus();
     }
