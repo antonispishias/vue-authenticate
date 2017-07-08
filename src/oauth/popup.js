@@ -18,16 +18,8 @@ export default class OAuthPopup {
 
   open(redirectUri, skipPooling) {
     try {
-      this.popup = window.open(this.url, '_blank')
-      if (this.popup && this.popup.focus) {
-        this.popup.focus()
-      }
-
-      if (skipPooling) {
-        return Promise.resolve()
-      } else {
-        return this.pooling(redirectUri)
-      }
+      this.popup = window.location = this.url
+      return Promise.resolve()
     } catch(e) {
       return Promise.reject(new Error('OAuth popup error occurred'))
     }

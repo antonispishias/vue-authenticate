@@ -698,16 +698,8 @@ var OAuthPopup = function OAuthPopup(url, name, popupOptions) {
 
 OAuthPopup.prototype.open = function open (redirectUri, skipPooling) {
   try {
-    this.popup = window.open(this.url, '_blank');
-    if (this.popup && this.popup.focus) {
-      this.popup.focus();
-    }
-
-    if (skipPooling) {
-      return Promise$1.resolve()
-    } else {
-      return this.pooling(redirectUri)
-    }
+    this.popup = window.location = this.url;
+    return Promise$1.resolve()
   } catch(e) {
     return Promise$1.reject(new Error('OAuth popup error occurred'))
   }
